@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTI - Test2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./fonts/themify-icons/themify-icons.css">
+
+</head>
+<body>
+    <div id="main">
+        <div  id="navbar">
+            <a href="" id="website-name">KieuNhuNgoc</a>
+            <div id="navbar-right">
+                <a href=""><i class="nav-icon ti-home"></i>Home</a>
+                <button class="btn-login js-login"><i class="nav-icon ti-user "></i> Login</button>
+                <div class="navbar-search">
+                    <input type="text" placeholder="search.." >
+                    <a href="">
+                        <i class="search-icon ti-search"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+        <script>
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+              if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+                document.getElementById("navbar").style.padding = "16px 12px";
+                document.getElementById("website-name").style.fontSize = "25px";
+              } else {
+                document.getElementById("navbar").style.padding = "60px 10px";
+                document.getElementById("website-name").style.fontSize = "35px";
+              }
+            }
+        </script>
+    </div>
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close">
+                <i class=" ti-close"></i>
+            </div>
+            <header class="modal-header">
+                LOGIN
+            </header>
+            <div class="modal-body">
+                    <label for="modal-user" class="modal-label">
+                        <i class="modal-icon ti-user"></i>User
+                        <input type="text" class="modal-input" id="modal-user" placeholder="Name..">
+                    </label>
+                    <label for="modal-password" class="modal-label">
+                        <i class="modal-icon ti-key"></i>Password
+                        <input type="password" class="modal-input" id="modal-password" placeholder="Password..">
+                    </label>
+                    <button id="modal-login">LOGIN</button>
+                    <footer class="modal-footer">
+                        <a href="">Help?</a>
+                    </footer>
+            </div>
+        </div>
+    </div>
+    <script>
+        const buyBtns = document.querySelectorAll('.js-login');
+        const modal = document.querySelector('.js-modal');
+        const modalContainer = document.querySelector('.js-modal-container')
+        const modalClose = document.querySelector('.js-modal-close')
+
+        function show(){
+            modal.classList.add('open')
+        }
+        function hide(){
+            modal.classList.remove('open')
+        }
+
+        for(const buyBtn of buyBtns){
+            buyBtn.addEventListener('click',show)
+        }
+
+        modalClose.addEventListener('click',hide)
+
+        modal.addEventListener('click',hide)
+        modalContainer.addEventListener('click',function(event){
+            event.stopPropagation()
+    })
+    </script>
+
+<div id="content">
+             
+    <li>Distinguish/differentiate value inline, block, inline of attribute display ?</li>
+        <p>
+             <b>- Inline:</b> The element doesn't start on a new line and only occupy just the width it requires.
+             You can't set the width or height.
+        </p>
+
+        <p>
+             <b>- Inline-block:</b> It's formatted just like the inline element, 
+            where it doesn't start on a new line. But, you can set width ang height values.
+        </p>
+
+        <p>
+             <b>- Block:</b> The element will start on a new line and occupy the full width available. 
+            And you can set width anf height values.
+        </p>
+        <br>
+
+    <li> What is purpose of z-index attribute ?</li>
+        <p>
+            <b>- Z-index:</b> Specifies the stack order of an element. 
+            When elements are positioned, they can overlap other elements. <br>
+            If without any z-index value,the element defined last in the HTML code will be shown on top.
+        </p>
+        <br>
+    <li> List some of famous/popular css framework ?List some functions/feature use regularly ?</li>
+        <p>
+             <b>- Bootstrap:</b> It has a popular grid system based on flexbox and provides reusable components like:
+             tables, navigation bars, dropdown lists, etc. 
+        </p>
+        <p>
+             <b>- React:</b> Used to build user interface (User Interface - UI) in the form of Single Page
+            Salient features:JSX,Single-way data flow,Virtual DOM,...
+        </p>
+        <p>
+             <b>- Vue.js:</b> virtual DOM, data binding, components,Animation/Transition, Templates
+        </p>
+        <p>
+             <b>- jQuery:</b> Event Handling, DOM/HTML manipulation, Jquery AJAX calls, 
+            CSS manipulation, Animation and effects JSON Parsing.
+        </p>
+        <br>
+    <li> What is difference between mark "==" and "===" ?</li>
+        <p>
+            <b>- Triple equal</b> is called the strict equality operator, it’s doesn’t not perform type coercion.
+             It only return true when both values are exactly the same. <br>
+             <b>- Double equal</b> is called loose equality operator, 
+             it can use in order to compare the identity of two operands even though, they are not of a similar type.
+        </p>
+        <br>
+    <li>What are differences between localStorage, sessionStorage and cookie ?</li><br>
+        <table id="content-table">
+            <tr>
+                <th>Local Storage</th>
+                <th> Session Storage</th>
+                <th>Cookies </th>
+            </tr>
+            <tr>
+                <td>The storage capacity of local storage is 5MB/10MB</td>
+                <td>The storage capacity of session storage is 5MB</td>
+                <td>The storage capacity of Cookies is 4KB</td>
+            </tr>
+            <tr>
+                <td>As it is not session-based, it must be deleted via javascript or manually</td>
+                <td>It’s session-based and works per window or tab.
+                     This means that data is stored only for the duration of a session, i.e.,
+                     until the browser (or tab) is closed</td>
+                <td>Cookies expire based on the setting and working per tab and window </td>
+            </tr>
+            <tr>
+                <td>The client  can only read local storage</td>
+                <td>The client can only read local storage</td>
+                <td>Both clients and servers can read and write the cookies</td>
+            </tr>
+            <tr>
+                <td>There is no transfer of data to the server</td>
+                <td>There is no transfer of data to the server</td>
+                <td>Data transfer to the server is exist</td>
+            </tr>
+            <tr>
+                <td>There are fewer old browsers that support it</td>
+                <td>There are fewer old browsers that support it</td>
+                <td>It is supported by all the browser including older browser</td>
+            </tr>
+        </table>
+
+</div>
+</body>
+</html>
